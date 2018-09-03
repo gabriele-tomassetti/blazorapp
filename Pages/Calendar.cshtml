@@ -1,0 +1,106 @@
+﻿@page "/"
+@page "/calendar"
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm input-row">
+      <h1>Date in Different Calendars</h1>
+        <p>Select a date</p>
+        <input type="date" bind="@date" placeholder="@DateTime.Now" />        
+        &nbsp;&nbsp;&nbsp;
+        <button class="btn btn-primary" onclick="@ConvertDate">Convert Date</button>        
+    </div>    
+  </div>
+  <!-- the calendars -->
+  <div class="row calendar-row">
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Julian Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.JulianDate</p></p>            
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hebrew Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.HebrewDate</p></p>            
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Hijri Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.HijriDate</p></p>            
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row calendar-row">
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Japanese Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.JapaneseDate</p></p>            
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Korean Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.KoreanDate</p></p>            
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Persian Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.PersianDate</p></p>            
+            </div>
+        </div>
+    </div>
+  </div>
+  <div class="row calendar-row">
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Taiwan Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.TaiwanDate</p></p>            
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Chinese Lunisolar Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.ChineseLunisolarDate</p></p>            
+            </div>
+        </div>
+    </div>
+    <div class="col-sm">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Thai-Buddhist Calendar</h5>            
+                <p class="card-text"><p>@calendarDate.ThaiBuddhistDate</p></p>            
+            </div>
+        </div>
+    </div>    
+  </div>
+</div>
+
+@functions {
+    string date = DateTime.Today.ToString("yyyy-MM-dd");
+    CalendarDate calendarDate = new CalendarDate();
+
+    void ConvertDate()
+    {
+        if (!string.IsNullOrWhiteSpace(date))
+        {
+            calendarDate.StringDate = date;
+        }
+    }
+}

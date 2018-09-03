@@ -1,0 +1,14 @@
+@page "/text"
+@using Microsoft.AspNetCore.Blazor;
+@using Microsoft.JSInterop;
+
+<textarea id="main_text" class="form-control" rows="10" onchange='check();'></textarea>
+
+@functions {        
+    void repeat(UIChangeEventArgs e)
+    {
+        JSRuntime.Current.InvokeAsync<string>(
+            "console.log",
+            e.Value);
+    }
+}
